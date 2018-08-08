@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="header">
+          <h4 class="title">Commodity</h4>
+          <ul class="nav nav-tabs">
+            <li class="pointer" [class.active]="isFarmerActive" (click)="toggle('farmer')"><a data-toggle="tab" >Farmer Request</a></li>
+            <li class="pointer" [class.active]="isBuyerActive" (click)="toggle('buyer')"><a data-toggle="tab">Buyer Request</a></li>
+            <li class="pointer" [class.active]="isHistoryActive" (click)="toggle('history')"><a data-toggle="tab">Request History</a></li>
+          </ul>
+        </div>
+        <div class="content">
+          <div class="tab-content">
+            <div class="tab-pane fade in" [class.active]="isFarmerActive">
+              <div class="row">
+                <div class="col-lg-12">
+                  <app-farmer-request></app-farmer-request>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade in" [class.active]="isBuyerActive">
+              <div class="row">
+                <div class="col-lg-12">
+                  <app-buyer-request></app-buyer-request>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade in" [class.active]="isHistoryActive">
+              <h3>History</h3>
+              <p>Table</p>
+              req hitory
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<table id="table_id" class="table table-hover" cellspacing="0">
+  <thead>
+  <tr>
+    <th>Commodity</th>
+    <th>Price</th>
+    <th>Location</th>
+    <th>Date</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of tableData">
+    <td>{{item.commodity}}</td>
+    <td>{{item.price}}</td>
+    <td>{{item.location}}</td>
+    <td>{{item.date}}</td>
+    <td>
+      <button type="button" class="btn btn-info btn-sm">
+        <i class="ti-pencil"></i>
+      </button>
+      <button type="button" class="btn btn-warning btn-sm">
+        <i class="ti-trash"></i>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
