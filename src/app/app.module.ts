@@ -15,7 +15,13 @@ import { SettingsComponent } from './settings/settings.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {Location, HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { MaterialsModule } from './/materials.module';
+import { LoginPanelComponent } from './layout/login-panel/login-panel.component';
+import { LoginComponent } from './login/login.component';
+import {MaterialsModule} from "./materials.module";
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import {HttpClientModule} from "@angular/common/http";
+import {AuthService} from "./app-services/auth-service.service";
+import {AuthGuard} from "./app-services/auth-guard.service";
 
 
 @NgModule({
@@ -27,17 +33,23 @@ import { MaterialsModule } from './/materials.module';
     HeaderComponent,
     FooterComponent,
     HelpComponent,
-    SettingsComponent
+    SettingsComponent,
+    LoginPanelComponent,
+    LoginComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(APP_ROUTES),
     MaterialsModule
   ],
   providers: [
+    AuthService,
+    AuthGuard,
     Location, {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]

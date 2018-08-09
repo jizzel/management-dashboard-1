@@ -18,6 +18,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/users', title: 'Users',  icon:'ti-user', class: '' },
   { path: '/reports', title: 'Reports',  icon:'ti-align-justify', class: '' },
   { path: '/help', title: 'Help',  icon:'ti-help', class: '' },
+  { path: '/setup', title: 'Setup',  icon:'ti-new-window', class: '' },
   { path: '/settings', title: 'Settings',  icon:'ti-settings', class: 'active-pro' }
 ];
 
