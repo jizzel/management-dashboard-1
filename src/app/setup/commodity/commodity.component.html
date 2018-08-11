@@ -1,0 +1,14 @@
+<form [formGroup]="commodity" (ngSubmit)="updateCommodity()">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="form-group">
+        <label>Commodity</label>
+        <input type="text" class="form-control border-input" placeholder="Commodity" maxlength="10">
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button type="submit" class="btn btn-info btn-fill btn-wd">Add</button>
+  </div>
+  <div class="clearfix"></div>
+</form>

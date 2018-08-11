@@ -1,27 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {ConfigService} from "./config.service";
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+const JwtHelper = new JwtHelperService();
 
 @Injectable()
 export class AuthService {
-  url = '';
+  url = ConfigService.base_url + '/admin/login';
 
   constructor(private http:HttpClient,private router: Router) { }
 
   public login(resource){
     console.log(resource);
-    localStorage.setItem('user', 'Testing User');
-    return true;
-    // return this.http.put(this.url, resource)
-    //   .map(res => {
-    //     let response = res.json();
-    //     if(response.status == '500'){
-    //       localStorage.setItem('token', response.token);
-    //       return response;
-    //     }else {
-    //       return response;
-    //     }
-    //   });
+    return this.http.put(this.url, resource)
   }
 
   public logout(){
@@ -32,19 +25,19 @@ export class AuthService {
   }
 
   public get currentUser(){
-    let token = localStorage.getItem('user');
+    let token = localStorage.getItem('token');
     if(!token) return null;
-    return token;
+    // return token;
     // if(!token) return null;
-    // return new JwtHelper().decodeToken(token);
+    return JwtHelper.decodeToken(token);
   }
 
   public isLoggedIn(){
-    let token = localStorage.getItem('user');
-    if(!token) return false;
-    return true;
+    let token = localStorage.getItem('token');
+    // if(!token) return false;
+    // return true;
 
-    // return tokenNotExpired();
+    return !JwtHelper.isTokenExpired(token);
 
   }
 }
